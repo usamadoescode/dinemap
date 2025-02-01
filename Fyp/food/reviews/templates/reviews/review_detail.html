@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Full Review</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f9fafc;
+            padding-top: 50px;
+        }
+        .review-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .review-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: 0.3s;
+            background: #ffffff;
+            margin-bottom: 20px;
+        }
+        .review-card img {
+            width: 100%;
+            height: 500px; /* Adjust image height */
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .star-rating {
+            color: #FFD700;
+            font-size: 1.2rem; 
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 10px;
+        }
+        .btn-primary {
+            background-color: #E23744;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #d52d40;
+        }
+        .text-muted {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container review-container">
+        <h2 class="text-center mb-4">Full Review</h2>
+
+        <div class="card review-card">
+            <img src="{{ review.image.url }}" class="card-img-top" alt="Restaurant Image">
+            <div class="card-body">
+                <h3 class="card-title">{{ review.restaurant_name }}</h3>
+                <p class="text-muted">📍 {{ review.restaurant_location }}</p>
+                <p><strong>👤</strong> {{ review.user.username }}</p>
+                <p><strong>📞</strong> {{ review.restaurant_num }}</p>
+                <div class="star-rating">
+                    <p>⭐⭐⭐⭐☆</p>
+                </div>
+                <p class="card-text">{{ review.text }}</p>
+                <a href="http://127.0.0.1:8000/reviews/" class="btn btn-primary">Back to Reviews</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
