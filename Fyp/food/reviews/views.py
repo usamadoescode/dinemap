@@ -1,5 +1,6 @@
 from pyexpat.errors import messages
 from django.shortcuts import render
+
 from .models import Review
 from .forms import User_Review
 from django.shortcuts import get_object_or_404,redirect
@@ -109,9 +110,10 @@ import re
 from langchain_google_genai import GoogleGenerativeAI
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.conf import settings
 
 # ✅ Your Google API Key
-api_key = "AIzaSyAEbMVPZ65BP1umolnJB3mh4DK9219qN10"
+api_key = settings.GOOGLE_API_KEY
 
 # ✅ Initialize Gemini AI
 llm = GoogleGenerativeAI(

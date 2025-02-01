@@ -15,12 +15,16 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+from dotenv import load_dotenv
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4)=vlney8ajosf*rj0j#i)u+ne#te7w1@rsaadkz__kuunj)&2'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
